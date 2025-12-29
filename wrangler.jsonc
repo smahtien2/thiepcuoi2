@@ -1,0 +1,7 @@
+{
+  "name": "thiepcuoi2",                 // tên dự án của bạn
+  "compatibility_date": "2025-12-29", // ngày tương thích (ngày hiện tại hoặc ngày mới hơn)
+  "assets": {
+    "directory": "./dist"              // thư mục chứa index.html và các file tĩnh của bạn
+  }
+}
