@@ -1,27 +1,21 @@
-const rsvpForm = document.getElementById("rsvpForm");
-
-rsvpForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const formData = {
-        full_name: document.getElementById("full_name").value,
-        number_of_guests: parseInt(document.getElementById("number_of_guests").value) || 0,
-        attending: document.querySelector('input[name="attending"]:checked').value,
-        message: document.getElementById("message").value
-    };
-
+export async function onRequestPost({ request, env }) {
     try {
-        const res = await fetch("/functions/rsvp", { // ✅ đường dẫn phải là /functions/rsvp
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData)
-        });
+        const { full_name, number_of_guests, attending, message } = await request.json();
 
-        const data = await res.json();
-        alert(data.message || "Đã gửi xác nhận!");
-        rsvpForm.reset();
+        // Ghi dữ liệu vào D1 database 'thiepcuoi'
+        await env.DB.prepare(
+            `INSERT INTO rsvp_guests (full_name, number_of_guests, attending, message) VALUES (?, ?, ?, ?)`
+        )
+        .bind(full_name, number_of_guests, attending, message)
+        .run();
+
+        return new Response(JSON.stringify({
+            message: "🎉 Đã ghi nhận xác nhận của bạn!"
+        }), { headers: { "Content-Type": "application/json" } });
     } catch (err) {
-        console.error(err);
-        alert("Gửi thất bại!");
+        return new Response(JSON.stringify({
+            message: "❌ Lỗi server",
+            error: err.message
+        }), { status: 500, headers: { "Content-Type": "application/json" } });
     }
-});
+}
