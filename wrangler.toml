@@ -1,0 +1,8 @@
+name = "my-worker"
+main = "src/index.js"
+compatibility_date = "2025-12-29"
+
+# Binding D1 database
+[[d1_databases]]
+binding = "DB"       # tên binding trong code
+database_name = "d1" # tên database trên Cloudflare
