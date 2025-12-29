@@ -1,7 +1,6 @@
 {
   "name": "thiepcuoi2",
   "compatibility_date": "2025-12-29",
-  "main": "./rsvp.js",
   "assets": {
     "directory": "./"
   }
