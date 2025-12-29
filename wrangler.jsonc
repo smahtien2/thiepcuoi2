@@ -4,4 +4,13 @@
   "assets": {
     "directory": "./"
   }
+"vars": [],
+"bindings": [
+  {
+    "name": "DB",
+    "type": "d1_database",
+    "database_name": "thiepcuoi"
+  }
+]
+
 }
