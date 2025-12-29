@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <title>Thiệp Cưới</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <h1>💍 Thiệp Mời Dự Tiệc Cưới</h1>
+
+    <form id="rsvpForm">
+        <label>
+            Họ và tên:
+            <input type="text" id="full_name" required />
+        </label>
+        <br /><br />
+
+        <label>
+            Số người tham dự:
+            <input type="number" id="number_of_guests" min="0" value="1" />
+        </label>
+        <br /><br />
+
+        <label>
+            <input type="radio" name="attending" value="yes" checked />
+            Sẽ tham dự
+        </label>
+        <label>
+            <input type="radio" name="attending" value="no" />
+            Không tham dự
+        </label>
+        <br /><br />
+
+        <label>
+            Lời nhắn:
+            <br />
+            <textarea id="message" rows="4"></textarea>
+        </label>
+        <br /><br />
+
+        <button type="submit">Gửi xác nhận</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
