@@ -1,16 +1,12 @@
 {
-  "name": "thiepcuoi2",
+  "name": "my-worker",
+  "main": "src/index.js",
   "compatibility_date": "2025-12-29",
-  "assets": {
-    "directory": "./"
-  }
-"vars": [],
-"bindings": [
-  {
-    "name": "DB",
-    "type": "d1_database",
-    "database_name": "thiepcuoi"
-  }
-]
-
+  "vars": [],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "d1"
+    }
+  ]
 }
